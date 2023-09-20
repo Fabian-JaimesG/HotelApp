@@ -1,0 +1,38 @@
+Table Disponibilidad {
+  id integer [primary key,increment]
+  habitacion_id integer
+  fecha Date [not null]
+  disponible bool [not null]
+}
+
+Table Habitaciones {
+  id integer [primary key, increment]
+  numero_habitacion integer [not null, unique]
+  tipo Varchar(255) [not null]
+  numero_camas integer [not null]
+  descripcion varchar
+  precio Decimal [not null]
+}
+
+Table Reservas {
+  id integer [primary key, increment]
+  habitacion_id integer
+  fecha_inicio Date [not null]
+  fecha_salida Date [not null]
+}
+
+Table Reservas_Habitaciones{
+  id integer [primary key, increment]
+  reservas_id integer
+  habitacion_id integer
+}
+
+Table Reservas_Habitaciones{
+  id integer [primary key, increment]
+  reservas_id integer
+  habitacion_id integer
+}
+
+Ref: Reservas_Habitaciones.reservas_id < Reservas.id
+Ref: Reservas_Habitaciones.habitacion_id < Habitaciones.id
+
